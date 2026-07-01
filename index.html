@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>视频标注维度训练参考站 | 多模态标注与评测</title>
+    <meta
+      name="description"
+      content="视频标注训练参考站，覆盖低质量筛选、标签挂载、描述一致性与质检复盘。"
+    />
+    <meta property="og:title" content="视频标注维度训练参考站" />
+    <meta
+      property="og:description"
+      content="把视频标注规则拆成可查询、可练习、可复核的工作流程。"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/placeholder.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workflow">跳到训练内容</a>
+
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="回到顶部">
+        <span class="brand-mark" aria-hidden="true">评</span>
+        <span class="brand-text">Video Annotation Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="页面章节">
+        <a href="#workflow">流程</a>
+        <a href="#quality">低质</a>
+        <a href="#taxonomy">分类</a>
+        <a href="#dimensions">维度</a>
+        <a href="#caption">描述</a>
+        <a href="#review">质检</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-band" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">多模态视频标注训练手册</p>
+          <h1 id="hero-title">把“好不好看”拆成可复核的标注动作</h1>
+          <p class="hero-lead">
+            先判断低质量跳过，再完成分类、标签挂载、视频描述和质检复盘。目标不是背术语，而是让不同标注员对同一段视频给出一致判断。
+          </p>
+          <dl class="hero-stats" aria-label="训练重点">
+            <div>
+              <dt>8</dt>
+              <dd>低质量跳过规则</dd>
+            </div>
+            <div>
+              <dt>6</dt>
+              <dd>视频标签维度</dd>
+            </div>
+            <div>
+              <dt>7</dt>
+              <dd>镜头移动标签</dd>
+            </div>
+          </dl>
+        </div>
+        <figure class="hero-visual">
+          <img
+            src="/assets/video-annotation-board.png"
+            alt="四个脱敏视频帧在标注界面中被框选和打标的示意图"
+          />
+          <figcaption>
+            脱敏示意素材：用于展示“画面观察 → 标签选择 → 质检复盘”的工作状态。
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section-band workflow" id="workflow" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2 id="workflow-title">视频标注按四步走</h2>
+          <p>
+            视频标注与图片标注逻辑一致，但多了时间维度。不要一上来写描述，先把是否可用、属于哪类、该挂哪些标签确定下来。
+          </p>
+        </div>
+        <div class="step-grid">
+          <article class="step-card">
+            <span class="step-index">STEP 01</span>
+            <h3>低质量视频判断</h3>
+            <p>先剔除不合格视频，标注为低质量并自动跳过。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-index">STEP 02</span>
+            <h3>视频数据标签分类</h3>
+            <p>对通过筛选的视频判断大类与细分场景。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-index">STEP 03</span>
+            <h3>标签挂载 + 描述</h3>
+            <p>添加色调、角度、构图、光影、景别、镜头移动等标签，再写完整 caption。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-index">STEP 04</span>
+            <h3>质检结果与备注</h3>
+            <p>记录争议边界，把同类问题回写成可复用判断口径。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-band quality" id="quality" aria-labelledby="quality-title">
+        <div class="section-heading">
+          <p class="eyebrow">Quality Gate</p>
+          <h2 id="quality-title">低质量视频：命中任一条就跳过</h2>
+          <p>
+            这一层是标注效率的第一道闸门。与图片相比，视频额外要求清晰度达到 1080p，并检查掉帧、卡顿、静止和镜头切换过频等动态质量问题。
+          </p>
+        </div>
+        <div class="quality-grid">
+          <article class="quality-rule">
+            <span>01</span>
+            <h3>安全性</h3>
+            <p>含有血腥、暴力、涉政、违法、引起不适等国家不允许互联网公开传播的内容。</p>
+          </article>
+          <article class="quality-rule">
+            <span>02</span>
+            <h3>水印内容</h3>
+            <p>视频中有非常明显且影响画面质量的水印。</p>
+          </article>
+          <article class="quality-rule">
+            <span>03</span>
+            <h3>画面异常</h3>
+            <p>黑白边框、明显截图的画面内容。</p>
+          </article>
+          <article class="quality-rule">
+            <span>04</span>
+            <h3>画面模糊</h3>
+            <p>画面清晰度低于 1080p。</p>
+          </article>
+          <article class="quality-rule">
+            <span>05</span>
+            <h3>过曝过暗</h3>
+            <p>画面过曝或过暗，影响主体物呈现。</p>
+          </article>
+          <article class="quality-rule">
+            <span>06</span>
+            <h3>无美感/构图</h3>
+            <p>随机拍摄，缺乏美感和构图意图。</p>
+          </article>
+          <article class="quality-rule">
+            <span>07</span>
+            <h3>视频不流畅</h3>
+            <p>存在掉帧、卡顿、静止、过于频繁切换镜头等效果。</p>
+          </article>
+          <article class="quality-rule">
+            <span>08</span>
+            <h3>全为文字</h3>
+            <p>视频中只有文字内容，无实际画面。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-band taxonomy" id="taxonomy" aria-labelledby="taxonomy-title">
+        <div class="section-heading">
+          <p class="eyebrow">Taxonomy</p>
+          <h2 id="taxonomy-title">视频标签分类体系</h2>
+          <p>分类采用两层结构：一级标签定大类，二级标签定细分场景。先判断内容来源和表现形态，再进入画面维度判断。</p>
+        </div>
+        <div class="taxonomy-table" role="table" aria-label="视频标签分类体系">
+          <div class="taxonomy-row taxonomy-head" role="row">
+            <div role="columnheader">分类标签</div>
+            <div role="columnheader">一级标签</div>
+            <div role="columnheader">二级标签示例</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">实拍视频</div>
+            <div role="cell">新闻纪实</div>
+            <div role="cell">采访、拍摄现场、篮球赛报道、网球赛跟拍、自行车赛摄、举重赛记录、射箭赛采访</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">实拍视频</div>
+            <div role="cell">生活记录</div>
+            <div role="cell">日常场景、家人互动、宠物瞬间、旅行见闻、小区跑步、公园跳绳、家里瑜伽、户外登山</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">动画视频</div>
+            <div role="cell">影院动画</div>
+            <div role="cell">《大闹天宫》《哪吒之魔童降世》《白蛇：缘起》《长安三万里》《千与千寻》《龙猫》《哈尔的移动城堡》</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">动画视频</div>
+            <div role="cell">电视动画</div>
+            <div role="cell">《喜羊羊与灰太狼》《虹猫蓝兔七侠传》《斗罗大陆》《一人之下》《黑猫警长》《葫芦兄弟》</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">屏幕录制</div>
+            <div role="cell">电脑录制</div>
+            <div role="cell">软件操作演示、系统操作教学、游戏实况、游戏攻略、在线课程、企业培训</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">混合视频</div>
+            <div role="cell">实拍与动画</div>
+            <div role="cell">《空中大灌篮》《怪物史瑞克 4D》《加菲猫》《豚鼠特工队》《艾尔文与花栗鼠》</div>
+          </div>
+          <div class="taxonomy-row" role="row">
+            <div role="cell">混合视频</div>
+            <div role="cell">真人与虚拟角色</div>
+            <div role="cell">《猩球崛起》系列、《美女与野兽》（2017）、《狮子王》（2019）、《爱丽丝梦游仙境》系列、《捉妖记》系列</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band dimensions" id="dimensions" aria-labelledby="dimensions-title">
+        <div class="section-heading">
+          <p class="eyebrow">Dimensions</p>
+          <h2 id="dimensions-title">视频标签挂载维度</h2>
+          <p>
+            视频标注是图片标注的扩展和升级。色调、角度、构图、景别、光影来自画面判断，镜头移动是视频专属维度。
+          </p>
+        </div>
+
+        <div class="dimension-layout">
+          <div class="dimension-tabs" role="tablist" aria-label="维度切换">
+            <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-tone" id="tab-tone" data-tab="tone">色调</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-angle" id="tab-angle" data-tab="angle">角度</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-composition" id="tab-composition" data-tab="composition">构图</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-shot" id="tab-shot" data-tab="shot">景别</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-light" id="tab-light" data-tab="light">光影</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="panel-motion" id="tab-motion" data-tab="motion">镜头移动</button>
+          </div>
+
+          <article class="dimension-panel" id="panel-tone" role="tabpanel" aria-labelledby="tab-tone">
+            <div class="panel-copy">
+              <h3>色调</h3>
+              <p>色调决定画面的第一眼情绪感受。标注时先看整体色彩倾向，再看饱和度强弱。</p>
+            </div>
+            <div class="dimension-card-grid" data-dimension="tone" aria-label="色调标签示例"></div>
+            <p class="judge-note">判断心得：暖/冷更多看画面主导色，低/高饱和度更多看视觉冲击和颜色纯度。</p>
+          </article>
+
+          <article class="dimension-panel" id="panel-angle" role="tabpanel" aria-labelledby="tab-angle" hidden>
+            <div class="panel-copy">
+              <h3>角度</h3>
+              <p>角度是摄像机相对于被摄主体的位置关系，优先以主体为参照，而不是以背景地平线为参照。</p>
+            </div>
+            <div class="dimension-card-grid" data-dimension="angle" aria-label="角度标签示例"></div>
+            <p class="judge-note">判断心得：平拍接近人眼日常观察；仰拍强化主体压迫感；俯拍更容易呈现全貌或弱化主体。</p>
+          </article>
+
+          <article class="dimension-panel" id="panel-composition" role="tabpanel" aria-labelledby="tab-composition" hidden>
+            <div class="panel-copy">
+              <h3>构图</h3>
+              <p>构图是画面中元素的组织排列方式，重点看主体、线条和视觉重心如何被安排。</p>
+            </div>
+            <div class="dimension-card-grid" data-dimension="composition" aria-label="构图标签示例"></div>
+            <p class="judge-note">判断心得：不要把“主体在中间”简单等同于有构图意图；还要看画面是否围绕主体形成稳定组织。</p>
+          </article>
+
+          <article class="dimension-panel" id="panel-shot" role="tabpanel" aria-labelledby="tab-shot" hidden>
+            <div class="panel-copy">
+              <h3>景别</h3>
+              <p>景别是取景范围的大小，决定被摄主体在画面中的占比。</p>
+            </div>
+            <div class="dimension-card-grid" data-dimension="shot" aria-label="景别标签示例"></div>
+            <p class="judge-note">判断心得：景别从大到小，本质是信息聚焦过程。大远景回答“在哪里”，特写回答“是什么细节或感受”。</p>
+          </article>
+
+          <article class="dimension-panel" id="panel-light" role="tabpanel" aria-labelledby="tab-light" hidden>
+            <div class="panel-copy">
+              <h3>光影</h3>
+              <p>光影控制明暗、氛围和立体感。视频中可同时观察光源类型、光线质感和光位。</p>
+            </div>
+            <div class="dimension-card-grid" data-dimension="light" aria-label="光影标签示例"></div>
+            <p class="judge-note">判断心得：先看光来自自然还是人工，再看阴影边缘是否锐利，最后看受光方向。</p>
+          </article>
+
+          <article class="dimension-panel" id="panel-motion" role="tabpanel" aria-labelledby="tab-motion" hidden>
+            <div class="panel-copy">
+              <h3>镜头移动</h3>
+              <p>镜头移动是视频专属维度，描述机位或镜头在时间中的运动方式。</p>
+            </div>
+            <div class="dimension-card-grid" data-dimension="motion" aria-label="镜头移动标签示例"></div>
+            <p class="judge-note">判断心得：固定镜头不是低质量的“静止视频”。前者是机位不动但画面可有主体动作，后者是动态质量问题。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-band caption" id="caption" aria-labelledby="caption-title">
+        <div class="section-heading">
+          <p class="eyebrow">Caption</p>
+          <h2 id="caption-title">视频 caption 结构化实例</h2>
+          <p>
+            先抽帧看懂视频，再按六个维度完成判定，最后把主体、修饰、镜头运动和细节补充写成可用于文生视频数据集的中文描述。
+          </p>
+        </div>
+
+        <div class="caption-showcase" aria-label="视频 caption 示例">
+          <div class="caption-board">
+            <div class="caption-board-head">
+              <span>TEST 01</span>
+              <span>低角度上篮样例</span>
+            </div>
+            <div class="caption-demo-grid">
+              <figure class="caption-video-frame">
+                <video
+                  src="/assets/caption/caption-layup-sample.mp4"
+                  poster="/assets/caption/caption-layup-poster.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="低角度篮球上篮示例视频"
+                ></video>
+                <figcaption>本地生成示例视频：从空篮筐到上篮入框，用于演示如何从连续画面写 caption。</figcaption>
+              </figure>
+              <div class="caption-label-board" aria-label="六维度判定结果">
+                <div><span>色调</span><strong>冷色调 / 低饱和</strong></div>
+                <div><span>角度</span><strong>极端仰拍 / 广角</strong></div>
+                <div><span>构图</span><strong>对称构图</strong></div>
+                <div><span>景别</span><strong>全景 → 近景</strong></div>
+                <div><span>光影</span><strong>自然光 / 逆光 / 硬光</strong></div>
+                <div><span>镜头移动</span><strong>固定 + 轻微抖动</strong></div>
+              </div>
+            </div>
+            <div class="caption-copy-box">
+              <p class="caption-copy-title">画面描述：</p>
+              <p>
+                <mark class="mark-subject">广角运动相机以极端仰角贴近地面朝正上方拍摄，画面中央是一座红白配色的篮筐与浅色篮板</mark>，
+                <mark class="mark-detail">沿垂直立柱形成对称构图，背景是大片通透的蓝天与几缕淡薄云层</mark>。
+                <mark class="mark-modifier">一位身穿运动背心和短裤的成年男子手持橙色篮球从画面边缘进入，举起手臂起跳，将篮球送入头顶篮筐，篮网随之轻轻晃动</mark>。
+                <mark class="mark-motion">镜头机位基本固定，仅随动作产生轻微抖动，广角畸变让篮架和人物显得更高大、更有张力</mark>。
+                <mark class="mark-style">整体呈冷色调、低饱和而明朗，左下角逆光眩光强化了夏日户外球场的轻松运动氛围</mark>。
+              </p>
+            </div>
+            <div class="caption-legend" aria-label="结构化表达图例">
+              <span class="legend-subject">主体描述</span>
+              <span class="legend-modifier">修饰词</span>
+              <span class="legend-motion">镜头运动</span>
+              <span class="legend-detail">细节补充</span>
+              <span class="legend-style">氛围/风格</span>
+            </div>
+          </div>
+
+          <aside class="caption-template-panel" aria-label="结构化实例描述模板">
+            <h3>实例描述模板</h3>
+            <p>用于训练新人时，可以先按结构拆开写，再合并成一段自然 caption。</p>
+            <div class="template-stack">
+              <article>
+                <span>01</span>
+                <h4>主体描述</h4>
+                <p>明确核心主体、场景和主要事件：成年运动者在户外球场完成一次上篮。</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h4>修饰词</h4>
+                <p>补充服装、姿态、动作推进和环境氛围：运动背心、起跳、伸臂、篮网晃动、夏日蓝天。</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h4>镜头运动</h4>
+                <p>写清机位与运镜：低机位广角仰拍，镜头基本固定，随动作有轻微抖动。</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h4>细节补充</h4>
+                <p>融合构图、色彩、光影和特殊效果：对称构图、冷色调、低饱和、自然逆光、眩光、广角畸变。</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-band review" id="review" aria-labelledby="review-title">
+        <div class="section-heading">
+          <p class="eyebrow">Review</p>
+          <h2 id="review-title">质检复盘：把争议变成下一轮规则</h2>
+          <p>
+            标注一致性不是靠经验口头传递，而是靠判断顺序、边界样例和备注沉淀。争议样本越早回写，后续人效越稳定。
+          </p>
+        </div>
+        <div class="review-grid">
+          <article>
+            <h3>判断顺序</h3>
+            <p>先低质量筛除，再判断分类，再挂载维度，最后写描述。顺序错了，后面的标签再细也会污染训练数据。</p>
+          </article>
+          <article>
+            <h3>易错边界</h3>
+            <p>随机拍摄不等于所有生活记录；固定镜头不等于静止低质；速度只记录节奏快慢，不升级成标签维度。</p>
+          </article>
+          <article>
+            <h3>一致性维护</h3>
+            <p>每轮抽检后沉淀正反例、备注争议原因，用相同 case 校准新人和老手的判断颗粒度。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>公开视频版本已脱敏，不包含内部项目素材、客户信息或飞书图片链接。</p>
+      <a href="#top">回到顶部</a>
+    </footer>
+
+    <script>
+      const dimensionData = {
+        tone: [
+          {
+            title: "暖色调",
+            img: "/assets/dimensions/tags/tone-warm.webp",
+            definition: "红色、橙色、黄色及其变体，让人联想到太阳、火焰。",
+            effect: "热情、活力、兴奋、亲近感、温暖感。",
+            hint: "看画面主导色是否明显偏红、橙、黄，而不是只看局部小物件。"
+          },
+          {
+            title: "冷色调",
+            img: "/assets/dimensions/tags/tone-cool.webp",
+            definition: "蓝色、绿色、紫色及其变体，让人联想到水、天空、森林。",
+            effect: "宁静、沉稳、安逸、冷静、放松感。",
+            hint: "如果环境光和大面积背景偏蓝绿，通常优先判断为冷色调。"
+          },
+          {
+            title: "低饱和度",
+            img: "/assets/dimensions/tags/tone-low-saturation.webp",
+            definition: "颜色柔和模糊，对比度低。",
+            effect: "回忆、冷清、复古、高贵、安静、理性、深沉，情绪向内。",
+            hint: "颜色不刺眼，灰度感更强，边界和对比通常更柔。"
+          },
+          {
+            title: "高饱和度",
+            img: "/assets/dimensions/tags/tone-high-saturation.webp",
+            definition: "颜色鲜明，视觉冲击力强。",
+            effect: "张扬、活泼、吸引眼球、激情、喧闹、感性，情绪向外。",
+            hint: "色彩纯度高、反差明显，第一眼有强烈吸睛感。"
+          }
+        ],
+        angle: [
+          {
+            title: "平拍",
+            img: "/assets/dimensions/tags/angle-eye-level.webp",
+            definition: "摄像机与主体平行、同一高度。",
+            effect: "客观、自然的视角，接近人眼日常观察。",
+            hint: "主体没有被明显压低或抬高，视线高度接近日常观察。"
+          },
+          {
+            title: "仰拍",
+            img: "/assets/dimensions/tags/angle-low-angle.webp",
+            definition: "从下方往上拍摄。",
+            effect: "使被摄对象显得高大、占据主导地位。",
+            hint: "画面常出现向上的透视线，主体更有压迫感或力量感。"
+          },
+          {
+            title: "俯拍",
+            img: "/assets/dimensions/tags/angle-high-angle.webp",
+            definition: "从上方往下拍摄。",
+            effect: "使被摄人物显得弱小，常用于表现俯瞰和全貌。",
+            hint: "能看到物体顶部或地面布局，主体相对更小。"
+          },
+          {
+            title: "其他",
+            img: "/assets/dimensions/tags/angle-special-angle.webp",
+            definition: "除平拍、仰拍、俯拍以外的特殊角度。",
+            effect: "如鱼眼镜头、空间站视角、特殊广角/畸变视角。",
+            hint: "如果透视畸变或观察位置很特殊，别强行归入前三类。"
+          }
+        ],
+        composition: [
+          {
+            title: "对称构图",
+            img: "/assets/dimensions/tags/composition-symmetry.webp",
+            definition: "按对称轴或对称中心，使画面景物形成轴对称或中心对称。",
+            effect: "常见于建筑、隧道等，稳定、庄重、秩序感强。",
+            hint: "找画面中轴线，两侧元素是否有明显对应关系。"
+          },
+          {
+            title: "三分构图",
+            img: "/assets/dimensions/tags/composition-rule-of-thirds.webp",
+            definition: "两条竖线和两条横线将画面分割，形成 4 个交叉点，主体放在交叉点上。",
+            effect: "通用，最常用的经典构图。",
+            hint: "主体不一定居中，重点看视觉重心是否落在三分线附近。"
+          },
+          {
+            title: "中心构图",
+            img: "/assets/dimensions/tags/composition-center.webp",
+            definition: "主体放置在画面中心，主体突出、左右平衡。",
+            effect: "常用于产品静物、人像。",
+            hint: "主体居中且周边服务于突出主体，而不是随机碰巧在中间。"
+          },
+          {
+            title: "曲线构图",
+            img: "/assets/dimensions/tags/composition-curve.webp",
+            definition: "画面元素沿曲线延伸。",
+            effect: "常见于自然风光、城市夜景，带来流动感和引导线。",
+            hint: "优先寻找道路、河流、灯带等连续曲线是否引导视线。"
+          },
+          {
+            title: "三角构图",
+            img: "/assets/dimensions/tags/composition-triangle.webp",
+            definition: "画面中元素自然形成三角关系，给人稳定感。",
+            effect: "常见于风景建筑。",
+            hint: "看主体或关键元素是否能连成稳定三角，而不是单点堆叠。"
+          },
+          {
+            title: "对角线构图",
+            img: "/assets/dimensions/tags/composition-diagonal.webp",
+            definition: "主体沿画面对角线方向排列，表现动感和张力。",
+            effect: "常见于运动、动态场景。",
+            hint: "如果主要线条从左下到右上或反向贯穿画面，优先考虑它。"
+          },
+          {
+            title: "水平线构图",
+            img: "/assets/dimensions/tags/composition-horizontal.webp",
+            definition: "以水平线条为主，表现宽阔、稳定、和谐。",
+            effect: "常见于湖面、水面、草原。",
+            hint: "画面被横向层次组织起来，地平线、水面线是核心线索。"
+          }
+        ],
+        shot: [
+          {
+            title: "大远景",
+            img: "/assets/dimensions/tags/shot-extreme-long.webp",
+            definition: "表现辽阔场景，主体占比极小甚至被环境淹没。",
+            effect: "突出环境气势，如群山、海洋。",
+            hint: "先回答“在哪里”，主体通常不是第一视觉重点。"
+          },
+          {
+            title: "远景",
+            img: "/assets/dimensions/tags/shot-long.webp",
+            definition: "远距离拍摄，视野开阔。",
+            effect: "常用于自然景观、城市风貌、大规模活动。",
+            hint: "主体可辨认但仍偏小，环境信息占主要比重。"
+          },
+          {
+            title: "全景",
+            img: "/assets/dimensions/tags/shot-full.webp",
+            definition: "有明确视觉中心，画面中人和物都精细、准确。",
+            effect: "人或物能完整呈现，动作与空间关系都能看清。",
+            hint: "主体完整入画，同时还能保留一定环境信息。"
+          },
+          {
+            title: "中景",
+            img: "/assets/dimensions/tags/shot-medium.webp",
+            definition: "环境只显示局部，被拍对象开始突出为画面主体。",
+            effect: "人物通常露出膝盖及以上部分。",
+            hint: "环境退到辅助位置，主体动作和姿态成为判断重点。"
+          },
+          {
+            title: "近景",
+            img: "/assets/dimensions/tags/shot-close.webp",
+            definition: "镜头对准近距离部分，人物胸部以上或物体局部。",
+            effect: "突出面部表情、神态、形体动作。",
+            hint: "画面开始压缩背景，主体局部占据大面积。"
+          },
+          {
+            title: "特写",
+            img: "/assets/dimensions/tags/shot-extreme-close.webp",
+            definition: "只能拍到对象某一局部，突出细节。",
+            effect: "常见于证件照、眼睛、手势等。",
+            hint: "主要回答“是什么细节或感受”，不再依赖完整环境。"
+          }
+        ],
+        light: [
+          {
+            title: "自然光",
+            img: "/assets/dimensions/tags/light-natural.webp",
+            definition: "自然界光源，主要来源是太阳。",
+            effect: "晴天光线强、方向性明显；阴天光线柔和均匀；月光朦胧微弱。",
+            hint: "窗光、户外日光、天空漫反射都优先归入自然光。"
+          },
+          {
+            title: "人造光",
+            img: "/assets/dimensions/tags/light-artificial.webp",
+            definition: "人工制造的光源，如灯光、蜡烛光。",
+            effect: "可灵活控制亮度、角度、色彩，突出主体或营造氛围。",
+            hint: "台灯、霓虹、舞台灯、室内灯带都是明显线索。"
+          },
+          {
+            title: "硬光",
+            img: "/assets/dimensions/tags/light-hard.webp",
+            definition: "产生清晰锐利阴影和高对比度的光源。",
+            effect: "通常来自较小或较远的光源。",
+            hint: "阴影边缘越清楚、明暗反差越强，越接近硬光。"
+          },
+          {
+            title: "软光",
+            img: "/assets/dimensions/tags/light-soft.webp",
+            definition: "产生柔和渐变阴影和较低对比度的光源。",
+            effect: "通常来自较大光源或散射/漫反射，阴影边缘模糊。",
+            hint: "阴影过渡平滑、皮肤或物体质感更柔时优先考虑。"
+          },
+          {
+            title: "左侧光",
+            img: "/assets/dimensions/tags/light-left.webp",
+            definition: "从被摄体左侧照射。",
+            effect: "形成明显明暗分割，突出轮廓。",
+            hint: "以被摄体为参照，看亮面是否主要在左侧。"
+          },
+          {
+            title: "右侧光",
+            img: "/assets/dimensions/tags/light-right.webp",
+            definition: "从被摄体右侧照射。",
+            effect: "形成明显明暗分割，方向相反。",
+            hint: "亮面主要在右侧，左侧阴影更重。"
+          },
+          {
+            title: "逆光",
+            img: "/assets/dimensions/tags/light-back.webp",
+            definition: "从被摄体后方照射。",
+            effect: "使被摄体呈现剪影效果，适合表现氛围。",
+            hint: "主体正面偏暗，边缘出现轮廓光或背景更亮。"
+          },
+          {
+            title: "顶光",
+            img: "/assets/dimensions/tags/light-top.webp",
+            definition: "从上方照射。",
+            effect: "表现质感和细节，但阴影部分可能过暗。",
+            hint: "主体顶部最亮，下方或眼窝、底部阴影明显。"
+          },
+          {
+            title: "顺光",
+            img: "/assets/dimensions/tags/light-front.webp",
+            definition: "从前方照射，与相机镜头平行。",
+            effect: "受光均匀，适合记录细节，但立体感较弱。",
+            hint: "阴影少、细节清楚但空间层次较弱。"
+          }
+        ],
+        motion: [
+          {
+            title: "固定镜头",
+            img: "/assets/dimensions/tags/motion-fixed.webp",
+            definition: "机位不动，画面静止。",
+            effect: "镜头框架稳定，主体可以在画面内运动。",
+            hint: "不要把固定镜头误判成低质量静止；关键看视频是否仍有有效画面内容。"
+          },
+          {
+            title: "推",
+            img: "/assets/dimensions/tags/motion-push.webp",
+            definition: "镜头向前推进，画面由远及近。",
+            effect: "主体逐渐变大，注意力被拉向细节。",
+            hint: "如果不是主体自己走近，而是整体画面推进，才更像推镜头。"
+          },
+          {
+            title: "拉",
+            img: "/assets/dimensions/tags/motion-pull.webp",
+            definition: "镜头向后拉远，画面由近及远。",
+            effect: "主体逐渐变小，环境信息增多。",
+            hint: "常用于从细节退到全貌，判断时看画幅中环境比例是否增加。"
+          },
+          {
+            title: "摇",
+            img: "/assets/dimensions/tags/motion-pan.webp",
+            definition: "镜头水平或垂直转动。",
+            effect: "机位基本不平移，视线方向发生旋转。",
+            hint: "画面像原地转头观察，而不是横向走过一个空间。"
+          },
+          {
+            title: "移",
+            img: "/assets/dimensions/tags/motion-truck.webp",
+            definition: "镜头横向移动。",
+            effect: "视角随机位平移，前后景会产生位移差。",
+            hint: "如果主体大小基本不变，但背景侧向滑动，通常是移。"
+          },
+          {
+            title: "升",
+            img: "/assets/dimensions/tags/motion-rise.webp",
+            definition: "镜头向上移动。",
+            effect: "视野抬高，常逐渐展示更大空间或俯视信息。",
+            hint: "看机位高度是否上升，而不是镜头只向上摇。"
+          },
+          {
+            title: "降",
+            img: "/assets/dimensions/tags/motion-descend.webp",
+            definition: "镜头向下移动。",
+            effect: "视线降低，常从全貌回到主体或地面细节。",
+            hint: "看机位高度是否下降，而不是镜头只向下摇。"
+          }
+        ]
+      };
+
+      document.querySelectorAll("[data-dimension]").forEach((container) => {
+        const cards = dimensionData[container.dataset.dimension] || [];
+        container.innerHTML = cards
+          .map((card) => `
+            <article class="dimension-tag-card">
+              <img src="${card.img}" alt="${card.title}示例图" loading="lazy" />
+              <div class="dimension-tag-body">
+                <h4>${card.title}</h4>
+                <dl>
+                  <div>
+                    <dt>定义</dt>
+                    <dd>${card.definition}</dd>
+                  </div>
+                  <div>
+                    <dt>效果</dt>
+                    <dd>${card.effect}</dd>
+                  </div>
+                </dl>
+                <p>${card.hint}</p>
+              </div>
+            </article>
+          `)
+          .join("");
+      });
+
+      const tabButtons = document.querySelectorAll("[data-tab]");
+      const panels = document.querySelectorAll(".dimension-panel");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const target = button.dataset.tab;
+
+          tabButtons.forEach((item) => {
+            const active = item === button;
+            item.classList.toggle("is-active", active);
+            item.setAttribute("aria-selected", String(active));
+          });
+
+          panels.forEach((panel) => {
+            panel.hidden = panel.id !== `panel-${target}`;
+          });
+        });
+      });
+
+    </script>
+  </body>
+</html>
