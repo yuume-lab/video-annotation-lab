@@ -1,19 +1,78 @@
+/* Typography shared with the portfolio (mypage-gold-chi.vercel.app) */
+@font-face {
+  font-family: Manuka;
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/63b49269ab964b26528dfc4b_manuka-medium.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Manuka;
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/63b49269cb7a6e41b218cc76_manuka-black.woff2) format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Faktum;
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/5be7e22fe80c1623330d78fa_Faktum-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Faktum;
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/5be7e22fb95161b57fcea4ae_Faktum-Medium.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Faktum;
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/5be7e22fe80c161f820d78fb_Faktum-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Faktum;
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/5be7e22fc9fc1f319002e8e7_Faktum-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Basis grotesque mono pro";
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/5e5741d7fa858fa1feb9f80a_basis-grotesque-mono-regular-pro.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Basis grotesque mono pro";
+  src: url(https://cdn.prod.website-files.com/5bcd190539ce888450a18425/5e5741d7c5f6ac64878a2ca9_basis-grotesque-mono-bold-pro.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
-  --ink: #141411;
-  --ink-soft: #3b3b34;
-  --paper: #f7f6f0;
-  --surface: #ffffff;
-  --mist: #e6eee9;
-  --line: #d7ddd2;
-  --teal: #1f8f84;
-  --teal-dark: #12635c;
-  --amber: #d89a1c;
-  --rust: #b94e33;
-  --red: #c43c35;
-  --green: #5c8f4b;
-  --shadow: 0 18px 60px rgba(20, 20, 17, 0.12);
-  --radius: 8px;
+  /* sage palette — mirrors the portfolio theme */
+  --ink: #181610;
+  --ink-soft: #35443a;
+  --paper: #a9dcb3;
+  --surface: #c6e9ce;
+  --mist: #8fd39d;
+  --line: rgba(24, 22, 16, 0.28);
+  --teal: #3e8e5e;
+  --teal-dark: #2f7a4d;
+  --amber: #2f7a4d;
+  --rust: #4e8a3a;
+  --red: #181610;
+  --green: #2f7a4d;
+  --shadow: none;
+  --radius: 16px;
   --max: 1180px;
 }
 
@@ -28,11 +87,8 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    linear-gradient(90deg, rgba(20, 20, 17, 0.035) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(rgba(20, 20, 17, 0.025) 1px, transparent 1px) 0 0 / 28px 28px,
-    var(--paper);
-  font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--paper);
+  font-family: Faktum, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.6;
 }
 
@@ -79,8 +135,8 @@ button {
   justify-content: space-between;
   gap: 24px;
   min-height: 68px;
-  border-bottom: 1px solid rgba(20, 20, 17, 0.14);
-  background: rgba(247, 246, 240, 0.92);
+  border-bottom: 1px solid rgba(24, 22, 16, 0.14);
+  background: rgba(169, 220, 179, 0.92);
   padding: 0 28px;
   backdrop-filter: blur(14px);
 }
@@ -99,7 +155,9 @@ button {
   width: 34px;
   height: 34px;
   border: 1px solid var(--ink);
-  background: var(--amber);
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--paper);
   font-family: "Songti SC", "STSong", serif;
 }
 
@@ -127,9 +185,23 @@ button {
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  border-color: rgba(20, 20, 17, 0.24);
-  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(24, 22, 16, 0.3);
+  background: rgba(255, 255, 255, 0.5);
   outline: none;
+}
+
+.nav-links .nav-home {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.nav-links .nav-home:hover,
+.nav-links .nav-home:focus-visible {
+  border-color: var(--teal-dark);
+  background: var(--teal-dark);
+  color: #fff;
 }
 
 .section-band {
@@ -155,8 +227,10 @@ button {
 .eyebrow {
   margin: 0 0 14px;
   color: var(--teal-dark);
+  font-family: "Basis grotesque mono pro", ui-monospace, monospace;
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -169,9 +243,9 @@ p {
 
 h1,
 h2 {
-  font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
-  font-weight: 800;
-  line-height: 1.08;
+  font-family: Manuka, "PingFang SC", "Hiragino Sans GB", sans-serif;
+  font-weight: 900;
+  line-height: 1.04;
 }
 
 h1 {
@@ -208,7 +282,9 @@ h3 {
   max-width: 620px;
   margin: 0;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.62);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .hero-stats div {
@@ -221,9 +297,9 @@ h3 {
 
 .hero-stats dt {
   color: var(--teal-dark);
-  font-family: "Iowan Old Style", "Songti SC", serif;
-  font-size: 2.2rem;
-  font-weight: 800;
+  font-family: Manuka, "PingFang SC", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -278,7 +354,7 @@ h3 {
   min-height: 190px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.45);
   padding: 22px;
 }
 
@@ -289,29 +365,13 @@ h3 {
   min-height: 26px;
   margin-bottom: 18px;
   border-radius: 999px;
-  background: var(--mist);
-  padding: 2px 9px;
-  color: var(--teal-dark);
-  font-size: 0.76rem;
-  font-weight: 850;
-}
-
-.step-card:nth-child(2) .step-index,
-.quality-rule:nth-child(4n + 2) span {
-  background: #f2e4bf;
-  color: #7a5512;
-}
-
-.step-card:nth-child(3) .step-index,
-.quality-rule:nth-child(4n + 3) span {
-  background: #ead6ce;
-  color: #8b3c29;
-}
-
-.step-card:nth-child(4) .step-index,
-.quality-rule:nth-child(4n + 4) span {
-  background: #dce9d3;
-  color: #3e6738;
+  background: var(--ink);
+  padding: 2px 10px;
+  color: var(--paper);
+  font-family: "Basis grotesque mono pro", ui-monospace, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .step-card p,
@@ -336,7 +396,7 @@ h3 {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  border: 1px solid rgba(196, 60, 53, 0.28);
+  border: 1px solid rgba(24, 22, 16, 0.4);
   border-radius: 999px;
   padding: 2px 8px;
   color: var(--red);
@@ -432,8 +492,9 @@ h3 {
 }
 
 .panel-copy h3 {
-  font-family: "Iowan Old Style", "Songti SC", serif;
-  font-size: 2rem;
+  font-family: Manuka, "PingFang SC", sans-serif;
+  font-weight: 900;
+  font-size: 2.1rem;
 }
 
 .panel-copy p {
@@ -451,7 +512,7 @@ h3 {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fbfaf5;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .dimension-tag-card img {
@@ -505,8 +566,9 @@ h3 {
 
 .judge-note {
   margin: 0;
-  border-left: 4px solid var(--amber);
-  background: #fff7e2;
+  border-left: 4px solid var(--teal-dark);
+  border-radius: 0 8px 8px 0;
+  background: rgba(255, 255, 255, 0.45);
   padding: 14px 16px;
   color: var(--ink-soft);
 }
@@ -520,11 +582,11 @@ h3 {
 
 .caption-board {
   overflow: hidden;
-  border: 1px solid rgba(247, 246, 240, 0.34);
+  border: 1px solid rgba(169, 220, 179, 0.4);
   border-radius: 22px;
   background:
-    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.18), transparent 26%),
-    linear-gradient(135deg, #24252b 0%, #111317 58%, #2d2440 100%);
+    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.14), transparent 26%),
+    linear-gradient(135deg, #22392b 0%, #0f1a12 58%, #2b4a35 100%);
   padding: 26px;
   color: var(--paper);
   box-shadow: var(--shadow);
@@ -542,9 +604,10 @@ h3 {
 }
 
 .caption-board-head span:first-child {
-  font-family: "Iowan Old Style", "Songti SC", serif;
-  font-size: 1.35rem;
-  letter-spacing: 0;
+  font-family: Manuka, "PingFang SC", sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
 }
 
 .caption-demo-grid {
@@ -595,11 +658,11 @@ h3 {
   align-items: center;
   justify-content: center;
   min-height: 38px;
-  border: 1px solid rgba(247, 246, 240, 0.42);
+  border: 1px solid rgba(169, 220, 179, 0.5);
   border-radius: 999px;
-  background: linear-gradient(180deg, #fffdf1, #d8cfb8);
+  background: linear-gradient(180deg, #eef6ec, #a9dcb3);
   padding: 7px 14px;
-  color: #4a4331;
+  color: #1d3a28;
   font-size: 0.92rem;
   line-height: 1.25;
   text-align: center;
@@ -714,7 +777,7 @@ h3 {
 .template-stack article {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fbfaf5;
+  background: rgba(255, 255, 255, 0.4);
   padding: 16px;
 }
 
@@ -751,7 +814,7 @@ h3 {
 }
 
 .review-grid p {
-  color: rgba(247, 246, 240, 0.78);
+  color: rgba(198, 233, 206, 0.9);
 }
 
 .site-footer {
